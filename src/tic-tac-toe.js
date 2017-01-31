@@ -16,13 +16,13 @@ return this.play;
     }
 
     nextTurn(rowIndex, columnIndex) {
-    	 if (this.getFieldValue(rowIndex, columnIndex) === null) {
-        this.matrix[rowIndex][columnIndex] = this.getCurrentPlayerSymbol();
-     	if(this.play==='x')
-     		this.play='o';
-     	if(this.play==='o')
-     		this.play='x';
-     }
+    	 //if (this.getFieldValue(rowIndex, columnIndex) === null) {
+       // this.matrix[rowIndex][columnIndex] = this.getCurrentPlayerSymbol();
+     	//if(this.play==='x')
+     	//	this.play='o';
+     	//if(this.play==='o')
+     	//	this.play='x';
+     //}
     }
 
     isFinished() {
@@ -34,7 +34,13 @@ return this.play;
     }
 
     noMoreTurns() {
-
+        for (var i = 0; i < 3; i++) {
+        for (var j = 0; j < 3; j++) {
+          if (this.matrix[i][j] === '') 
+          	return false;
+        }
+      }
+      return true;
     }
 
     isDraw() {
