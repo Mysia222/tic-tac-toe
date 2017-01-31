@@ -1,6 +1,13 @@
 class TicTacToe {
     constructor() {
-
+this.matrix=[
+  ['','',''],
+  ['','',''],
+  ['','',''],
+];
+//this.rowIndex='';
+//this.colIndex='';
+this.play='x';
     }
 
     getCurrentPlayerSymbol() {
@@ -29,7 +36,10 @@ class TicTacToe {
 
     getFieldValue(rowIndex, colIndex) {
 
+    	return this.matrix[rowIndex][colIndex];
+
     }
 }
 
 module.exports = TicTacToe;
+
