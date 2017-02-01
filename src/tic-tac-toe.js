@@ -1,9 +1,9 @@
 class TicTacToe {
     constructor() {
 this.matrix=[
-  [null,null,null],
-  [null,null,null],
-  [null,null,null],
+  ['','',''],
+  ['','',''],
+  ['','',''],
 ];
 //this.rowIndex='';
 //this.colIndex='';
@@ -16,7 +16,7 @@ return this.play;
     }
 
     nextTurn(rowIndex, columnIndex) {
-    	 if (this.getFieldValue(rowIndex, columnIndex) === null) {
+    	 if (this.getFieldValue(rowIndex, columnIndex) === '') {
        this.matrix[rowIndex][columnIndex] = this.getCurrentPlayerSymbol();
      	if(this.play==='x')
      	this.play='o';
@@ -37,7 +37,7 @@ return this.play;
     noMoreTurns() {
         for (var i = 0; i < 3; i++) {
         for (var j = 0; j < 3; j++) {
-          if (this.matrix[i][j] === null) 
+          if (this.matrix[i][j] === '') 
           	return false;
         }
       }
