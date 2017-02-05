@@ -64,7 +64,7 @@ return this.player;
     noMoreTurns() {
         for (var i = 0; i < 3; i++) {
         for (var j = 0; j < 3; j++) {
-          if (this.matrix[i][j] === null) 
+          if (this.matrix[i][j] == null) 
           	return false;
         }
       }
@@ -72,9 +72,8 @@ return this.player;
     }
 
     isDraw() {
-    if(this.noMoreTurns() || this.getWinner() == null)
+    if(this.noMoreTurns() && this.getWinner() == null)
     	return true;
-    else
     	return false;
     }
 
