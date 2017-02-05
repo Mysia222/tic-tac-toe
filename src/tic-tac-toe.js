@@ -29,7 +29,7 @@ return this.player;
 
     isFinished() {
     	
-      	if(this.getWinner()!=null || this.isDraw() )
+      	if(this.getWinner()!=null || this.noMoreTurns() == true)
       	{
       		return true;
       	}
@@ -39,23 +39,26 @@ return this.player;
     }
 
     getWinner() {
-    	/*if(this.matrix[0][0]=='x' && this.matrix[0][1]=='x' && this.matrix[0][2]=='x' ) return 'x';
-    	if(this.matrix[0][0]=='x' && this.matrix[1][0]=='x' && this.matrix[2][0]=='x' ) return 'x';
-    	if(this.matrix[0][0]=='x' && this.matrix[1][1]=='x' && this.matrix[2][2]=='x' ) return 'x';
-    	if(this.matrix[0][2]=='x' && this.matrix[1][2]=='x' && this.matrix[2][2]=='x' ) return 'x';
-    	if(this.matrix[0][1]=='x' && this.matrix[1][1]=='x' && this.matrix[2][1]=='x' ) return 'x';
-    	if(this.matrix[2][0]=='x' && this.matrix[2][1]=='x' && this.matrix[2][2]=='x' ) return 'x';
+    	
+    	 if (this.matrix[0][0] === this.matrix[0][1] && this.matrix[0][1] === this.matrix[0][2]) 
+    	 	return this.matrix[0][2];
+      if (this.matrix[1][0] === this.matrix[1][1] && this.matrix[1][1] === this.matrix[1][2]) 
+      	return this.matrix[1][2];
+      if (this.matrix[2][0] === this.matrix[2][1] && this.matrix[2][1] === this.matrix[2][2]) 
+      	return this.matrix[2][2];
+      if (this.matrix[0][0] === this.matrix[1][0] && this.matrix[1][0] === this.matrix[2][0]) 
+      	return this.matrix[2][0];
+      if ( this.matrix[0][1] === this.matrix[1][1] && this.matrix[1][1] === this.matrix[2][1]) 
+      	return this.matrix[2][1];
+      if ( this.matrix[0][2] === this.matrix[1][2] && this.matrix[1][2] === this.matrix[2][2]) 
+      	return this.matrix[2][2];
+      if ( this.matrix[0][0] === this.matrix[1][1] && this.matrix[1][1] === this.matrix[2][2])
+       return this.matrix[2][2];
+      if (this.matrix[0][2] === this.matrix[1][1] && this.matrix[1][1] === this.matrix[2][0]) 
+      	return this.matrix[2][0];
 
-    	if(this.matrix[0][0]=='o' && this.matrix[0][1]=='o' && this.matrix[0][2]=='o' ) return 'o';
-    	if(this.matrix[0][0]=='o' && this.matrix[1][0]=='o' && this.matrix[2][0]=='o' ) return 'o';
-    	if(this.matrix[0][0]=='o' && this.matrix[1][1]=='o' && this.matrix[2][2]=='o' ) return 'o';
-    	if(this.matrix[0][2]=='o' && this.matrix[1][2]=='o' && this.matrix[2][2]=='o' ) return 'o';
-    	if(this.matrix[0][1]=='o' && this.matrix[1][1]=='o' && this.matrix[2][1]=='o' ) return 'o';
-    	if(this.matrix[2][0]=='o' && this.matrix[2][1]=='o' && this.matrix[2][2]=='o' ) return 'o';
+      return null;
     
-    	return null;
-    
-    */
     }
 
     noMoreTurns() {
@@ -69,7 +72,7 @@ return this.player;
     }
 
     isDraw() {
-    if(noMoreTurns())
+    if(this.noMoreTurns() || this.getWinner() == null)
     	return true;
     else
     	return false;
